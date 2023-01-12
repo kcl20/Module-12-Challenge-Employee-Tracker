@@ -1,4 +1,6 @@
-class addEmployee  {
+function addEmployee()  {
+
+    console.log("add employee");
 
 }
 

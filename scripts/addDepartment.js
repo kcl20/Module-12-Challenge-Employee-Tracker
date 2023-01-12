@@ -1,4 +1,6 @@
-class addDepartment  {
+function addDepartment()  {
+
+    console.log("add department");
 
 }
 

@@ -1,4 +1,6 @@
-class addRole  {
+function addRole()  {
+
+    console.log("add role");
 
 }
 

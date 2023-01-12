@@ -1,4 +1,6 @@
-class updateEmployeeRole  {
+function updateEmployeeRole()  {
+    
+    console.log("Update employee role");
 
 }
 

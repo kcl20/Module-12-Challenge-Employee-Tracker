@@ -1,4 +1,6 @@
-class viewAllRoles  {
+function viewAllRoles()  {
+
+    console.log("view all roles");
 
 }
 

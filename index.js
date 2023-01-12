@@ -10,8 +10,9 @@ const addRole = require('./scripts/addRole');
 const addEmployee = require('./scripts/addEmployee');
 
 const updateEmployeeRole = require('./scripts/updateEmployeeRole');
+const { inherits } = require('util');
 
-DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_PASSWORD = process.env.DB_PASSWORD;
 
 // Connect to database
 const db = mysql.createConnection(
@@ -45,9 +46,7 @@ function startMenu() {
             'Quit']
           
         },
-    ]);
-
-    .then((response) => {
+    ]).then((response) => {
         switch (response.main_menu) {
             case 'View all employees':
                 viewAllEmployees();
@@ -77,7 +76,7 @@ function startMenu() {
 
 
 
-
+startMenu();
 
 // Query database
 // db.query('SELECT * FROM employees', function (err, results) {

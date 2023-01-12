@@ -1,4 +1,6 @@
-class viewAllEmployees {
+function viewAllEmployees() {
+
+    console.log("view all employees");
 
 }
 

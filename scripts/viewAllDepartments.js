@@ -1,4 +1,6 @@
-class viewAllDepartments  {
+function viewAllDepartments()  {
+
+    console.log("view all departments");
 
 }
 
