@@ -3,6 +3,6 @@ VALUES
 ('Pam', 'Beasley', 1),
 ('Kelly', 'Kapur', 2),
 ('Dwight', 'Schrute', 3),
-('Michael', 'Scott', 4)
+('Michael', 'Scott', 4);
 
 SELECT * from employee;

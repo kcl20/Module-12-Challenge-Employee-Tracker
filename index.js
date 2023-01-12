@@ -3,7 +3,7 @@ const cTable = require('console.table');
 const mysql = require('mysql2');
 require('dotenv').config();
 
-const viewAllEmployees = require('./scripts/viewAllEmployees');
+// const viewAllEmployees = require('./scripts/viewAllEmployees');
 const viewAllRoles = require('./scripts/viewAllRoles');
 const viewAllDepartments = require('./scripts/viewAllDepartments');
 const addDepartment = require('./scripts/addDepartment');
@@ -79,7 +79,15 @@ function startMenu() {
 
 startMenu();
 
-// Query database
-// db.query('SELECT * FROM employees', function (err, results) {
-//     console.log(results);
-//   });
+
+function viewAllEmployees() {
+
+    console.log("view all employees");
+
+    db.query('SELECT * FROM employee', function (err, results) {
+        console.table(results);
+    });
+
+    
+}
+
