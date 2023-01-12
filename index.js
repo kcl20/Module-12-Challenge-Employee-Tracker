@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require('mysql2');
+require('dotenv').config();
 
 const viewAllEmployees = require('./scripts/viewAllEmployees');
 const viewAllRoles = require('./scripts/viewAllRoles');
