@@ -2,6 +2,15 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 const mysql = require('mysql2');
 
+const viewAllEmployees = require('./scripts/viewAllEmployees');
+const viewAllRoles = require('./scripts/viewAllRoles');
+const viewAllDepartments = require('./scripts/viewAllDepartments');
+const addDepartment = require('./scripts/addDepartment');
+const addRole = require('./scripts/addRole');
+const addEmployee = require('./scripts/addEmployee');
+
+const updateEmployeeRole = require('./scripts/updateEmployeeRole');
+
 DB_PASSWORD = process.env.DB_PASSWORD;
 
 // Connect to database
@@ -18,31 +27,59 @@ const db = mysql.createConnection(
   );
 
 
-// Inquirer
+// Startup Inquirer
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
-    },
-    {
-      type: 'checkbox',
-      message: 'What languages do you know?',
-      name: 'stack',
-      choices: ['HTML', 'CSS', 'JavaScript', 'MySQL'],
-    },
-    {
-      type: 'list',
-      message: 'What is your preferred method of communication?',
-      name: 'contact',
-      choices: ['email', 'phone', 'telekinesis'],
-    },
-  ])
+function startMenu() {
+    inquirer.prompt([
+        {
+          type: 'list',
+          name: 'main_menu',
+          message: 'What would you like to do?',
+          choices: [
+            'View all employees',
+            'Add employee',
+            'Update employee role',
+            'View all roles',
+            'View all departments',
+            'Add department',
+            'Quit']
+          
+        },
+    ]);
 
-  
-  // Query database
-db.query('SELECT * FROM employees', function (err, results) {
-    console.log(results);
-  });
+    .then((response) => {
+        switch (response.main_menu) {
+            case 'View all employees':
+                viewAllEmployees();
+                break;
+            case 'Add employee':
+                addEmployee();
+                break;
+            case 'Update employee role':
+                updateEmployeeRole();
+                break;
+            case 'View all roles':
+                viewAllRoles();
+                break;
+            case 'View all departments':
+                viewAllDepartments();
+                break;
+            case 'Add department':
+                addDepartment();
+                break;
+            case 'Quit':
+                break;
+        }
+    })
+
+
+}
+
+
+
+
+
+// Query database
+// db.query('SELECT * FROM employees', function (err, results) {
+//     console.log(results);
+//   });
