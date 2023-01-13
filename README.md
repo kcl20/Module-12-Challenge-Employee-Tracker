@@ -11,6 +11,7 @@ npm start to initiate the app.
 Select an option from the menu.
 
 ![Screenshot][assets/Screenshot_1.png]
+![Recording][https://www.loom.com/share/4f6890d232624786acd4f59d3e76ab20]
 
 ## Credits
 n/a

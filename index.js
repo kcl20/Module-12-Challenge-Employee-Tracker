@@ -39,11 +39,13 @@ function startMenu() {
           message: 'What would you like to do?',
           choices: [
             'View all employees',
-            'Add employee',
+            
             'Update employee role',
             'View all roles',
             'View all departments',
             'Add department',
+            'Add role',
+            'Add employee',
             'Quit']
           
         },
@@ -151,12 +153,22 @@ function addRole()  {
             name: 'title',
             message: 'What is the title of the role?',
         },
+        {
+            type: 'number',
+            name: 'salary',
+            message: 'What is the salary of the role?',
+        },
+        {
+            type: 'input',
+            name: 'departmentId',
+            message: 'What is the department ID of the role?',
+        },
     ]).then((data) => {
-        // console.log(data.departmentName);
-        const sqlQuery = 'INSERT INTO role (title) VALUES (?)';
-        const params = [data.title];
+        // console.log(data.title);
+        const sqlQuery = 'INSERT INTO role (title, salary, department_id) VALUES (?,?,?);';
+        const params = [data.title, data.salary, data.departmentId];
 
-        db.query(sqlQuery, params, function (err, results) {console.log("Added role " + sqlQuery)});
+        db.query(sqlQuery, params, function (err, results) {console.log("Added role " + params)});
 
         db.query('SELECT * FROM role', function (err, results) {
             console.log( '\n' );
