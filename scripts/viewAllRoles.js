@@ -1,6 +1,13 @@
+const db = require('./index.js');
+
 function viewAllRoles()  {
 
-    console.log("view all roles");
+    console.log("Fetching all roles.");
+
+    db.query('SELECT * FROM role', function (err, results) {
+        console.table(results);
+    });
+
 
 }
 
