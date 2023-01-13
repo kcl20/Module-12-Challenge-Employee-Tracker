@@ -1,3 +1,4 @@
+const inquirer = require('inquirer');
 const db = require('./index.js');
 
 function viewAllEmployees()  {
@@ -8,7 +9,7 @@ function viewAllEmployees()  {
         console.table(results);
     });
 
-
+  
 }
 
 module.exports = viewAllEmployees;
